@@ -1,0 +1,10 @@
+Resolução de Exercícios
+Propriedades - título, nível e/ou código, enunciado
+Discussão das soluções
+- lógica do algoritmo
+- teoria técnica sobre a estratégia
+- complexidade de tempo
+- complexidade de espaço
+2 a 3 soluções -> no mínimo a de força bruta e a melhor solução.
+
+Importante: escrito tudo em inglês.

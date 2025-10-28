@@ -1,3 +1,4 @@
+package training.algorithmsjava;
 public class GenericMethods {
     
     // a) Método para contar elementos iguais ao parâmetro

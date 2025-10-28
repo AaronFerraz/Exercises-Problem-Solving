@@ -1,0 +1,109 @@
+# ===============================================
+# GITIGNORE GLOBAL (APLICÁVEL A VÁRIAS TECNOLOGIAS E FERRAMENTAS)
+# ===============================================
+
+# Arquivos de Sistema Operacional
+.DS_Store             # macOS
+.Trashes              # macOS
+Thumbs.db             # Windows
+ehthumbs.db           # Windows
+Desktop.ini           # Windows
+*.log                 # Arquivos de log genéricos
+*.temp                # Arquivos temporários genéricos
+*.tmp                 # Arquivos temporários genéricos
+~* # Arquivos de backup de alguns editores (ex: Vim)
+*.swp                 # Arquivos swap do Vim
+.env                  # Variáveis de ambiente (sensíveis)
+
+# Arquivos de IDE (IntelliJ, VS Code, Eclipse, etc.)
+# IntelliJ IDEA
+.idea/                # Pasta de configurações do projeto IntelliJ
+*.iml                 # Arquivos de módulo IntelliJ (se não estiverem no .idea/)
+*.ipr                 # Arquivos de projeto IntelliJ (antigo)
+*.iws                 # Arquivos de workspace IntelliJ (antigo)
+.vscode/              # Pasta de configurações do projeto VS Code
+.classpath            # Eclipse
+.project              # Eclipse
+.settings/            # Eclipse
+
+# ===============================================
+# JAVA
+# ===============================================
+
+# Arquivos de build e resultados de compilação
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Diretórios de build (Maven, Gradle)
+target/               # Diretório de output do Maven
+build/                # Diretório de output do Gradle
+.gradle/              # Arquivos de cache do Gradle
+.classpath            # Eclipse
+.project              # Eclipse
+.settings/            # Eclipse
+bin/                  # Diretório de binários (compilação)
+out/                  # Diretório de output de IDEs (ex: IntelliJ)
+
+# Arquivos de log e cache
+hs_err_pid* # Logs de erro da JVM
+test-output/          # Saída de testes (ex: TestNG)
+
+# ===============================================
+# PYTHON
+# ===============================================
+
+# Diretórios de ambiente virtual
+venv/                 # Ambiente virtual padrão
+.venv/                # Ambiente virtual alternativo
+env/                  # Outro nome comum para ambiente virtual
+.env/                 # Outro nome comum para ambiente virtual
+
+# Arquivos de cache e build
+__pycache__/          # Cache de bytecode Python
+*.pyc                 # Arquivos compilados Python
+*.pyd                 # Python DLLs (Windows)
+*.egg                 # Pacotes empacotados Python
+.pytest_cache/        # Cache de Pytest
+
+# Arquivos específicos de editor/ferramenta Python
+.python-version       # pyenv
+.mypy_cache/          # Mypy cache
+.ruff_cache/          # Ruff cache
+.dmypy.json           # Dmypy cache
+.ipynb_checkpoints/   # Checkpoints de Jupyter Notebook
+
+# ===============================================
+# JAVASCRIPT / NODE.JS
+# ===============================================
+
+# Diretório de dependências
+node_modules/         # Dependências do Node.js/NPM
+
+# Arquivos de build e output
+dist/                 # Diretório de distribuição (Webpack, Rollup, etc.)
+build/                # Diretório de build (Create React App, etc.)
+out/                  # Outro nome comum para diretório de output
+
+# Arquivos de cache
+.npm/                 # Cache do NPM
+npm-debug.log* # Logs de debug do NPM
+yarn-debug.log* # Logs de debug do Yarn
+yarn-error.log* # Logs de erro do Yarn
+.parcel-cache/        # Cache do Parcel
+.next/                # Next.js build output
+.nuxt/                # Nuxt.js build output
+.expo/                # Expo related files
+coverage/             # Relatórios de cobertura de testes
+
+# Arquivos de configuração de ambiente (sensíveis)
+.env                  # Variáveis de ambiente
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
