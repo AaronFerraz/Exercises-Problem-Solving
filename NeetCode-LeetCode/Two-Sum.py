@@ -3,7 +3,7 @@ Properties
 Title: Two Sum
 Level: easy
 
-Statment:
+Statement:
 Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
 You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
 Return the answer with the smaller index first.
@@ -31,18 +31,6 @@ Constraints:
 '''
 Discussion of Solutions:
 
-1. Brute Force Approach
-- costly algorithm (inefficient)
-- Check all possible pairs (i, j) where i != j
-- Time Complexity: O(n²)
-- Space Complexity: O(1)
-
-
-2. Optimized Dictionary Approach
-- Use a empty dictionary to store seen numbers and their indices
-- for each number, check if (target - current) exists in the structure
-- Time Complexity: O(n)
-- Space Complexity: O(n)
 '''
 
 
@@ -94,22 +82,14 @@ class Solution:
 
 
 
-
-# Testing
+# Tests
 solver = Solution()
 
-# Solution 1
 result = solver.twoSum1([3,4,5,6], 7)
-print(f"nums = [3,4,5,6], target = 7, result = {result}")
-# Output: [0,1]
+print(f"nums = [3,4,5,6], target = 7, result = {result}") # Output: [0,1]
 
-result = solver.twoSum1([4,5,6], 10)
-print(f"nums = [4,5,6], target = 10, result = {result}")
-# Output: [0,2]
+result = solver.twoSum2([4,5,6], 10)
+print(f"nums = [4,5,6], target = 10, result = {result}") # Output: [0,2]
 
-result = solver.twoSum1([5,5], 10)
-print(f"nums = [5,5], target = 10, result = {result}")
-# Output: [0,1]
-
-
-# Solution 2
+result = solver.twoSum3([5,5], 10)
+print(f"nums = [5,5], target = 10, result = {result}") # Output: [0,1]

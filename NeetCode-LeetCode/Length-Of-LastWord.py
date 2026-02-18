@@ -3,7 +3,7 @@ Properties
 Title: Length Of Last Word
 Level: easy
 
-Statment:
+Statement:
 Given a string s consisting of words and spaces, return the length of the last word in the string.
 A word is a maximal substring consisting of non-space characters only.
  
@@ -68,21 +68,17 @@ class Solution:
 
 
 
-# Tests
+### Tests
 Solver = Solution()
 
 print(f"A saída é: {Solver.lengthOfLastWord("Olá mundo")}")
-print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("Olá mundo")}")
-# Output expected: 5
+print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("Olá mundo")}") # Output expected: 5
 
 print(f"A saída é: {Solver.lengthOfLastWord("fly to the moon")}")
-print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("fly to the moon")}")
-# Output expected: 4
+print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("fly to the moon")}") # Output expected: 4
 
 print(f"A saída é: {Solver.lengthOfLastWord("encontrei um paralelepipedo")}")
-print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("encontrei um paralelepidedo")}")
-# Output expected: 14
+print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2("encontrei um paralelepidedo")}") # Output expected: 14
 
 print(f"A saída é: {Solver.lengthOfLastWord(" ")}")
-print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2(" ")}")
-# Output expected: 0
+print(f"A saída é - versão 2: {Solver.lengthOfLastWord_version2(" ")}") # Output expected: 0

@@ -1,16 +1,12 @@
 def fibonnaci_generator(limite):
     a, b = 0, 1
 
-    print("---- Generator Starting ----")
-
     while a < limite:
         yield a
 
         # essa linha só executa na próxima chamada next()
         a, b = b, a + b
         print(f"(Gerador retomado, próximos valores são a={a}, b={b})")
-
-    print("--- O gerador terminou ---")    
 
 
 # criação de um objeto generator

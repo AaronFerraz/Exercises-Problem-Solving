@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Binary Search Tree </title>
+</head>
+<body>
+    <h1> Binary Search Tree </h1>
+
+    <script>
+        class TreeNode{
+            constructor(value){
+                this.value = value
+                this.left = null
+                this.right = null
+            }
+        }
+
+        class BinarySearchTree{
+            constructor(){
+                this.root = null
+            }
+
+            insert(value){
+                const newNode = new TreeNode(value)
+
+                if(this.root == null){
+                    this.root = newNode
+                } else {
+                    this.#insertNode(this.root, newNode)
+                }
+            }
+
+            #insertNode(node, newNode){
+                if(newNode.value < node.value){
+                    if(node.left === null){
+                        node.left = newNode
+                    } else{
+                        this.#insertNode(node.left, newNode)
+                    }
+                }
+                else if (newNode.value > node.value) {
+                    if (node.right === null){
+                        node.right = newNode
+                    } else {
+                        this.#insertNode(node.right, newNode)
+                    }
+                }
+            }
+
+            search(value){
+                return this.#searchNode(this.root, value)
+            }
+
+            #searchNode(node, value){
+                if(node === null){
+                    return false
+                }
+
+                if(value < node.value){
+                    return this.#searchNode(node.left, value)
+                } else if (value > node.value){
+                    return this.#searchNode(node.right, value)
+                } else {
+                    return true
+                }
+            } 
+
+
+            remove(value){
+                this.root = this.#removeNode(this.root, value)
+            }   
+
+            #removeNode(node, value){
+                if(node === null){
+                    return null
+                } 
+                
+                if(value < node.value){
+                    node.left = this.#removeNode(node.left, value)
+                    return node
+                } else if (value > node.value){
+                    node.right = this.#removeNode(node.right, value)
+                    return node
+                } else {
+                    // nó folha
+                    if(node.left === null && node.right === null){
+                        node = null
+                        return node
+                    }
+
+                    // nó com apenas um filho
+                    if(node.left === null){
+                        node = node.right
+                        return node
+                    } else if (node.right === null){
+                        node = node.left
+                        return node
+                    }
+
+                    // nó com dois filhos
+                    const aux = this.#findMinNode(node.right)
+                    node.value = aux.value
+                    node.right = this.#removeNode(node.right, aux.value)
+                    return node
+                }
+            }
+
+            #findMinNode(node){
+                while(node && node.left !== null){
+                    node = node.left
+                }
+                return node
+            }
+
+            preOrderTraverse(callback){
+                this._preOrderTraverseNode(this.root, callback);
+            }
+
+            _preOrderTraverseNode(node, callback){
+                if (node !== null && typeof callback === "function"){
+                    callback(node.value);
+                    this._preOrderTraverseNode(node.left, callback);
+                    this._preOrderTraverseNode(node.right, callback)
+                }
+            }
+
+            inOrderTraverse(callback){
+                this._inOrderTraverseNode(this.root, callback);
+            }
+
+            _inOrderTraverseNode(node, callback){
+                if (node !== null && typeof callback === "function"){
+                    this._inOrderTraverseNode(node.left, callback);
+                    callback(node.value);
+                    this._inOrderTraverseNode(node.right, callback)
+                }
+            }
+
+            postOrderTraverse(callback){
+                this._postOrderTraverseNode(this.root, callback);
+            }
+
+            _postOrderTraverseNode(node, callback){
+                if (node !== null && typeof callback === "function"){
+                    this._postOrderTraverseNode(node.left, callback);
+                    this._postOrderTraverseNode(node.right, callback)
+                    callback(node.value)
+                }
+            }
+
+        }
+
+        const bst = new BinarySearchTree()
+        bst.insert(20)
+        bst.insert(15)
+        bst.insert(18)
+        bst.insert(15)
+        bst.insert(10)
+        bst.insert(25)
+
+        console.log('Buscando 15 na arvore: ', bst.search(15)) // true
+        console.log('Buscando 25 na arvore: ', bst.search(25)) // false
+
+        // bst.remove(1) // undefined
+        // bst.remove(15) // 15 removido
+
+        bst.preOrderTraverse(function(value){
+            document.write('Valor ' + value + '<br>')
+        })
+
+        document.write('<hr>')
+        bst.inOrderTraverse(function(value){
+            document.write('Valor ' + value + '<br>')
+        })
+        document.write('<hr>')
+        bst.postOrderTraverse(function(value){
+            document.write('Valor ' + value + '<br>')
+        })
+    </script>
+</body>
+</html>

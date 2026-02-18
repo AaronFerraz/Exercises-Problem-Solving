@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Graph Algorithms </title>
+</head>
+<body>
+    <h1> Grafos </h1>
+
+    <script>
+        class Graph{
+            constructor(isDirecional = true){
+                this.vertexes = {}
+                this.isDirecional = isDirecional
+            }
+
+            addVertex(vertex){
+                if(!this.vertexes[vertex]){
+                    this.vertexes[vertex] = []
+                }
+            }
+
+            addEdge(vertex1, vertex2){
+                if(this.vertexes[vertex1] && this.vertexes[vertex2]){
+                    this.vertexes[vertex1].push(vertex2)
+                    
+                    if(!this.isDirecional)
+                        this.vertexes[vertex2].push(vertex1) // Não direcionado
+                }
+            }
+
+            removeVertex(vertex){
+                while(this.vertexes[vertex].length){
+                    const adjacent = this.vertexes[vertex].pop()
+
+                    this.removeEdge(vertex, adjacent)
+                }
+
+                delete this.vertexes[vertex]
+            }
+
+            removeEdge(vertex1, vertex2){
+                const temp = []
+                for(const v of this.vertexes[vertex2]){
+                    if (v !== vertex1){
+                        temp.push(v)
+                    }
+                }
+                this.vertexes[vertex2] = temp
+
+                if(!this.isDirecional){
+                    const temp2 = []
+                    for(const v of this.vertexes[vertex1]){
+                        if (v !== vertex2){
+                            temp2.push(v)
+                        }
+                    }
+                    this.vertexes[vertex1] = temp2
+                }
+            }
+
+            getAdjacencyList(){
+                return this.vertexes
+            }
+
+            getNeighboors(vertex){
+                return this.vertexes[vertex] || []
+            }
+
+            display(){
+                for(const vertex in this.vertexes){
+                    console.log(`${vertex} -> ${this.vertexes[vertex].join(' - ')}`)
+                }
+            }
+        }
+
+
+        // Tests
+        const graph = new Graph(true)
+        graph.addVertex('A')
+        graph.addVertex('B')
+        graph.addVertex('C')
+        graph.addVertex('D')
+        graph.addVertex('E')
+
+        graph.addEdge('A', 'B')
+        graph.addEdge('B', 'C')
+        graph.addEdge('E', 'D')
+        graph.addEdge('A', 'D')
+        graph.addEdge('D', 'E')
+        graph.addEdge('A', 'D')
+        graph.addEdge('A', 'C')
+        graph.addEdge('E', 'B')
+        graph.addEdge('E', 'C')
+
+        // graph.removeVertex('A')
+        // graph.removeVertex('E')
+        
+        // graph.removeEdge('E', 'B')
+        
+        graph.display()
+
+
+        // Grafo estático representado como lista de adjacências
+        const grafo = {
+            'A': [ 'B', 'C' ],
+            'B': [ 'A', 'D' ],
+            'C': [ 'A', 'D' ],
+            'D': [ 'B', 'C' ]
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ Properties
 Title: Palindrome Number
 Level: easy
 
-Statment:
+Statement:
 Given an integer x, return true if x is a palindrome, and false otherwise.
 
 Example 1:
@@ -77,7 +77,7 @@ class Solution:
 
 
 
-# Tests
+### Tests
 Solver = Solution()
 
 print(f"Output version 1 - 10101: {Solver.isPalindrome(10101)}")
